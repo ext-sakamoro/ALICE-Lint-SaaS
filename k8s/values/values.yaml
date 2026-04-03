@@ -1,19 +1,17 @@
 global:
-  domain: ALICE_LINT.alice-platform.com
+  domain: alice-lint.alice-platform.com
 frontend:
   replicas: 2
-  image: ALICE_LINT/frontend:latest
+  image: alice-lint/frontend:latest
   resources: { requests: { cpu: 100m, memory: 128Mi }, limits: { cpu: 500m, memory: 512Mi } }
 apiGateway:
   replicas: 2
-  image: ALICE_LINT/api-gateway:latest
+  image: alice-lint/api-gateway:latest
   resources: { requests: { cpu: 200m, memory: 256Mi }, limits: { cpu: 1000m, memory: 1Gi } }
 coreEngine:
   replicas: 2
-  image: ALICE_LINT/core-engine:latest
+  image: alice-lint/core-engine:latest
   resources: { requests: { cpu: 500m, memory: 512Mi }, limits: { cpu: 2000m, memory: 2Gi } }
-redis:
-  image: redis:7-alpine
 autoscaling:
   enabled: true
   minReplicas: 2
